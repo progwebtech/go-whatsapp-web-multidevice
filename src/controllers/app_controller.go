@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"fmt"
+
 	"github.com/aldinokemal/go-whatsapp-web-multidevice/services"
 	"github.com/aldinokemal/go-whatsapp-web-multidevice/utils"
 	"github.com/gofiber/fiber/v2"
