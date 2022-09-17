@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/dustin/go-humanize v1.0.0
 	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
+	github.com/go-resty/resty v1.8.0
 	github.com/gofiber/fiber/v2 v2.26.0
 	github.com/gofiber/template v1.6.22
 	github.com/h2non/bimg v1.1.6
@@ -33,6 +34,7 @@ require (
 	github.com/valyala/tcplisten v1.0.0 // indirect
 	go.mau.fi/libsignal v0.0.0-20220425070825-c40c839ee6a0 // indirect
 	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4 // indirect
+	golang.org/x/net v0.0.0-20220111093109-d55c255bac03 // indirect
 	golang.org/x/sys v0.0.0-20220209214540-3681064d5158 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )

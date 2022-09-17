@@ -2,6 +2,9 @@ package cmd
 
 import (
 	"fmt"
+	"log"
+	"os"
+
 	"github.com/aldinokemal/go-whatsapp-web-multidevice/config"
 	"github.com/aldinokemal/go-whatsapp-web-multidevice/controllers"
 	"github.com/aldinokemal/go-whatsapp-web-multidevice/middleware"
@@ -14,8 +17,6 @@ import (
 	"github.com/gofiber/template/html"
 	"github.com/markbates/pkger"
 	_ "github.com/mattn/go-sqlite3"
-	"log"
-	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -23,16 +24,19 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Short: "Send free whatsapp API",
-	Long: `This application is from clone https://github.com/aldinokemal/go-whatsapp-web-multidevice, 
+	Long: `This application is from clone https://github.com/aldinokemal/go-whatsapp-web-multidevice,
 you can send whatsapp over http api but your whatsapp account have to be multi device version`,
 	Run: runRest,
 }
 
 func init() {
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
+
+	rootCmd.PersistentFlags().StringVarP(&config.AppName, "name", "n", config.AppName, "set app name --name")
 	rootCmd.PersistentFlags().StringVarP(&config.AppPort, "port", "p", config.AppPort, "change port number with --port <number> | example: --port=8080")
 	rootCmd.PersistentFlags().BoolVarP(&config.AppDebug, "debug", "d", config.AppDebug, "hide or displaying log with --debug <true/false> | example: --debug=true")
 	rootCmd.PersistentFlags().StringVarP(&config.WhatsappAutoReplyMessage, "autoreply", "", config.WhatsappAutoReplyMessage, `auto reply when received message --autoreply <string> | example: --autoreply="Don't reply this message"`)
+	rootCmd.PersistentFlags().StringVarP(&config.WebHook, "webhook", "w", config.WebHook, "set webhook with --webhook <string>")
 }
 
 func runRest(cmd *cobra.Command, args []string) {

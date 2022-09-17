@@ -2,6 +2,7 @@ package validations
 
 import (
 	"fmt"
+
 	"github.com/aldinokemal/go-whatsapp-web-multidevice/config"
 	"github.com/aldinokemal/go-whatsapp-web-multidevice/structs"
 	"github.com/aldinokemal/go-whatsapp-web-multidevice/utils"
@@ -12,7 +13,7 @@ import (
 func ValidateSendMessage(request structs.SendMessageRequest) {
 	err := validation.ValidateStruct(&request,
 		validation.Field(&request.Phone, validation.Required, validation.Length(10, 25)),
-		validation.Field(&request.Message, validation.Required, validation.Length(1, 50)),
+		validation.Field(&request.Message, validation.Required, validation.Length(1, 200)),
 	)
 
 	if err != nil {
